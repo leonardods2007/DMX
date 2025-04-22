@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interfaz DMX WiFi</title>
+  <link rel="icon" href="./img/icono.PNG" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .app-bar {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 255, 255, 0.2);
+    }
+
+    .app-bar img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    .app-bar h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #00ffff;
+    }
+
+    header {
+      background: #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #00ffff;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 1rem auto;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .gallery div {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .gallery div:nth-child(1) {
+      animation-delay: 0.5s;
+    }
+
+    .gallery div:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffff55;
+      transition: transform 0.3s ease;
+    }
+    
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery h2 {
+      margin-top: 0.8rem;
+      color: #00ffff;
+    }
+
+
+    .videos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 3rem;
+    }
+
+    .video-block {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .video-block iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00ffff55;
+    }
+
+    .video-block p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contacto {
+      background: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contacto h2 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    .contacto p {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+
+    .contacto a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: #000;
+      color: #aaa;
+    }
+    .especificaciones {
+      background-color: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    .especificaciones h2 {
+      color: #00ffff;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .especificaciones ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .especificaciones li {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .especificaciones li::before {
+      content: "•";
+      color: #00ffff;
+      position: absolute;
+      left: 0;
+    }
+    .back-button {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-right: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .back-button:hover {
+      color: #ffffff;
+    }
+    .envios {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    
+    .envios img {
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    /* Animaciones */
+    @keyframes rotateLogo {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <div class="app-bar">
+    <a href="index.html" class="back-button" title="Volver">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+    <img src="./img/icono.PNG" alt="Logo">
+    <h2>DMX CONTROLLER</h2>
+  </div>
+  
+
+  <header>
+    <h1>Interfaz DMX - WiFi</h1>
+    <p>Controla luces DMX con tu app para Android a través de nuestra interfaz WiFi. Fácil de usar, potente y portátil.</p>
+  </header>
+
+  <section class="gallery">
+    <img src="./img/foto3.JPG" alt="Foto del producto">
+    <img src="./img/foto2.JPG" alt="Conexión DMX">
+    <img src="./img/foto1.JPG" alt="App en Android">   
+  </section>
+
+  <section class="especificaciones">
+    <h2>¿Cómo funciona la conexión WiFi?</h2>
+    <p>
+      Este dispositivo genera una red WiFi propia a la que podés conectarte fácilmente desde un celular o tablet como cliente, sin necesidad de internet ni router adicional. Una vez conectado, accedés a la interfaz de control desde cualquier navegador web.
+    </p>
+    <p>
+      Soporta múltiples conexiones simultáneas, lo cual es ideal en escenarios donde el programador necesita retirarse: el iluminador puede continuar accediendo y ejecutando las escenas ya programadas desde otro dispositivo sin interrupciones.
+    </p>
+    <p>
+      Toda la programación se guarda directamente en la memoria interna de la interfaz, por lo que no depende del celular para funcionar. Además, si no se dispone de un dispositivo móvil en el momento, es posible recorrer y ejecutar las escenas almacenadas utilizando dos pulsadores ubicados en la parte trasera del equipo.
+    </p>
+  </section>
+
+  <section class="especificaciones">
+    <h1>Interfaz gráfica de control DMX</h2>
+    <p>
+      La interfaz gráfica desarrollada permite crear tus propios <strong>fixtures</strong> de forma rápida e intuitiva. Está diseñada para facilitar el manejo de luces en tiempo real desde cualquier dispositivo conectado a la red WiFi generada por la interfaz.
+    </p>
+    <p>
+      Incluye <strong>efectos predefinidos</strong> tanto para movimientos de cabezales móviles (como tilt y pan automáticos), como para luces LED, incluyendo strobo y cambio de colores. 
+    </p>
+    <p>
+      Soporta cualquier tipo de dispositivo con protocolo DMX. En esta primera versión, se pueden controlar hasta <strong>12 cabezales</strong> y <strong>12 tachos LED</strong> de manera individual. También es posible agregar más luces, repitiendo los canales DMX según necesidad.
+    </p>
+  </section>
+
+  <header>
+    <h2>Aplicación DMX CONTROLLER</h1>
+   
+  </header>
+
+  <section class="gallery">
+    <img src="./img/foto4.JPG" alt="Foto del producto">
+    <img src="./img/foto5.JPG" alt="App en Android">
+    <img src="./img/foto6.JPG" alt="Foto del producto">    
+  </section>
+
+
+
+
+  
+  <section class="especificaciones">
+    <h2>Especificaciones Técnicas</h2>
+    <ul>
+      <li>🔌 Alimentación: 110/240 V</li>
+      <li>⚡ Consumo: 3W</li>
+      <li>📶 WiFi: 2.4 GHz</li>
+      <li>📡 Alcance: 100 metros</li>
+      <li>📱 Sistema operativo: Android</li>
+      <li>🎚️ 2 salidas DMX independientes</li>
+    </ul>
+  </section>
+  
+
+  <section class="videos">
+    <div class="video-block">
+      <p>🔹 Como realizar la creación de fixtures para cabezales Alfie Beam II.</p>
+      <iframe src="https://www.youtube.com/embed/Ysqa8dsQ6tY" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video-block">
+      <p>🔹 En este video se explica como cargar un fixture en la aplicación Android para dispositivos móviles.</p>
+      <iframe src="https://www.youtube.com/embed/e2RXYrJPrrw" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video-block">
+      <p>🔹 Programación de escenas fijas con movimientos manuales.</p>
+      <iframe src="https://www.youtube.com/embed/vQ0HFAZGrOY" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video-block">
+      <p>🔹 Programación de escenas con movimientos automáticos.</p>
+      <iframe src="https://www.youtube.com/embed/qvJB6By6uzM?start=133" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="contacto">
+    <h2>Contáctenos</h2>
+    <p>¿Tenés dudas o querés hacer un pedido?</p>
+    <p>
+      <i class="fas fa-envelope" style="color: #00ffff; margin-right: 8px;"></i>
+      <a href="mailto:gumyds@hotmail.com">gumyds@hotmail.com</a>
+    </p>
+    <p>
+      <i class="fab fa-whatsapp" style="color: #00ff00; margin-right: 8px;"></i>
+      <a href="https://wa.me/5493816280362" target="_blank">+549 3816280362</a>
+    </p>
+
+    <p class="envios">
+      <i class="fas fa-car" style="color: #00ffff; font-size: 30px; margin-right: 8px;"></i>
+      Envíos a todo el país
+    </p>
+</section>
+
+
+  <footer>
+    © 2025 - Interfaz DMX WiFi | Diseñado para un control profesional de iluminación desde tu móvil
+  </footer>
+
+</body>
+</html>

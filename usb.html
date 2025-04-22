@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interfaz USB A DMX</title>
+  <link rel="icon" href="./img/icono.PNG" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .app-bar {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0, 255, 255, 0.2);
+    }
+
+    .app-bar img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    .app-bar h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #00ffff;
+    }
+
+    header {
+      background: #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #00ffff;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 1rem auto;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .gallery div {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffff55;
+      transition: transform 0.3s ease;
+    }
+    
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery h2 {
+      margin-top: 0.8rem;
+      color: #00ffff;
+    }
+    .gallery img.loaded {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .videos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      gap: 3rem;
+    }
+
+    .video-block {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    .video-block iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00ffff55;
+    }
+
+    .video-block p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contacto {
+      background: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contacto h2 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    .contacto p {
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+
+    .contacto a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: #000;
+      color: #aaa;
+    }
+    .especificaciones {
+      background-color: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    .especificaciones h2 {
+      color: #00ffff;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .especificaciones ul {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .especificaciones li {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    
+    .especificaciones li::before {
+      content: "•";
+      color: #00ffff;
+      position: absolute;
+      left: 0;
+    }
+    .back-button {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-right: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .back-button:hover {
+      color: #ffffff;
+    }
+    .envios {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    
+    .envios img {
+      height: 28px;
+      vertical-align: middle;
+    }
+
+    /* Animaciones */
+    @keyframes rotateLogo {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+  </style>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-bar">
+    <a href="index.html" class="back-button" title="Volver">
+      <i class="fas fa-arrow-left"></i>
+    </a>
+    <img src="./img/icono.PNG" alt="Logo">
+    <h2>DMX CONTROLLER</h2>
+  </div>
+  
+
+  <header>
+    <h1>Interfaz DMX - WiFi</h1>
+    <p>Controla luces DMX de manera eficiente utilizando la interfaz USB-DMX. Esta interfaz es optoaislada y optoacoplada. </p>
+  </header>
+
+  <section class="gallery">
+    <img src="./img/usb2.JPG" alt="Foto del producto">
+    <img src="./img/usb1.JPG" alt="Foto del producto">
+   
+  </section>
+
+  <section class="especificaciones">
+    <h2>¿Qué significa que sea optoaislada y optoacoplada?</h2>
+    <p>
+      La interfaz USB a DMX cuenta con un sistema de aislamiento óptico, lo que significa que el circuito que se conecta a la computadora está completamente separado eléctricamente del circuito DMX. Esto se logra utilizando optoacopladores, que permiten la transmisión de señales usando luz en lugar de corriente eléctrica directa.
+    </p>
+    <p>
+      Gracias a este diseño, se protege tanto a la computadora como al sistema de iluminación frente a posibles picos de tensión, cortocircuitos o fallas eléctricas en el entorno DMX. Es una característica clave en entornos profesionales donde la seguridad y la confiabilidad son fundamentales.
+    </p>
+    <p>
+      Además del aislamiento en la señal, esta interfaz incluye un convertidor DC-DC que proporciona una fuente de alimentación completamente aislada para el circuito DMX. Esto asegura una separación física y eléctrica total entre el lado USB y el lado DMX, eliminando cualquier posibilidad de interferencias o daños cruzados por diferencias de potencial o fallos eléctricos.
+    </p>
+  </section>
+
+  <section class="especificaciones">
+    <h2>Especificaciones Técnicas</h2>
+    <ul>
+      <li>🔌 Conexión: USB 2.0</li>
+      <li>⚡ Consumo: 1W</li>     
+      <li>💡 Plug and Play</li> 
+      <li>🎛️ Compatible con software FreeStyler, QLC+, etc.</li>
+      <li>📱 Sistema operativo: Windows, Ios, linux</li>
+      <li>🔋 Alimentación por USB</li>
+      <li>🎚️ 2 salidas DMX independientes</li>
+    </ul>
+  </section>
+  
+
+  <section class="especificaciones">
+    <h2>¿Qué es FreeStyler DMX?</h2>
+    <p>
+      <strong>FreeStyler DMX</strong> es un software gratuito para Windows que permite el control de luces DMX desde una computadora. Es ideal para eventos, teatros y shows en vivo, ya que ofrece una interfaz amigable y muchas funciones profesionales.
+    </p>
+    <p>
+      Con FreeStyler podés crear escenas, secuencias, efectos automáticos y controlar múltiples dispositivos de iluminación como cabezales móviles, PARs LED, strobes y más. La interfaz USB-DMX es 100% compatible con este programa, facilitando una conexión directa y estable.
+    </p>
+    <p>
+      Además, es posible integrar FreeStyler con consolas MIDI o dispositivos móviles mediante apps de control remoto, brindando flexibilidad total en el manejo del show.
+    </p>
+  </section>
+  
+
+  <section class="gallery">
+  <img src="./img/portada.png" alt="Foto del producto">
+  </section>
+
+  <section class="videos">
+    <div class="video-block">
+      <p>🔹 Ya sos programador de luces? Mirá como armar un show completo!.</p>
+      <iframe src="https://www.youtube.com/embed/watch?v=pmxutVC5oRk&list=PLmWuGnhmZDgZ43srFVPUsobhQHP0RcZhv" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="contacto">
+    <h2>Contáctenos</h2>
+    <p>¿Tenés dudas o querés hacer un pedido?</p>
+    <p>
+      <i class="fas fa-envelope" style="color: #00ffff; margin-right: 8px;"></i>
+      <a href="mailto:gumyds@hotmail.com">gumyds@hotmail.com</a>
+    </p>
+    <p>
+      <i class="fab fa-whatsapp" style="color: #00ff00; margin-right: 8px;"></i>
+      <a href="https://wa.me/5493816280362" target="_blank">+549 3816280362</a>
+    </p>
+
+    <p class="envios">
+      <i class="fas fa-car" style="color: #00ffff; font-size: 30px; margin-right: 8px;"></i>
+      Envíos a todo el país
+    </p>
+</section>
+
+
+  <footer>
+    © 2025 - Interfaz DMX WiFi | Diseñado para un control profesional de iluminación desde tu móvil
+  </footer>
+
+</body>
+</html>
