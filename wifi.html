@@ -209,6 +209,32 @@
       vertical-align: middle;
     }
 
+    .contenido-caja {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .contenido-caja h2 {
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+    
+    .contenido-caja ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 400px;
+    }
+    
+    .contenido-caja li {
+      background: #222;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.2);
+    }
+    
     /* Animaciones */
     @keyframes rotateLogo {
       0% { transform: rotate(0deg); }
@@ -300,6 +326,33 @@
     </ul>
   </section>
   
+  <section class="contenido-caja">
+    <h2>Contenido de la Caja</h2>
+    <ul>
+      <li>Interfaz DMX - WiFi</li>
+      <li>Antena de alta ganancia WiFi</li>
+      <li>Manual digital</li>
+      <li>Aplicación para celular DMX Controller</li>
+    </ul>
+  </section>
+  
+
+<section class="descargas" style="padding: 2rem; text-align: center; background-color: #0d0d0d;">
+  <h2 style="color: #00ffff; margin-bottom: 1rem;">Descargas</h2>
+
+  <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">
+    Accedé al manual digital y descargá la aplicación para celular.
+  </p>
+
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <a href="downloads/manual.pdf" download style="background-color: #00ffff; color: #000; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold;">
+      📖 Descargar Manual
+    </a>
+    <a href="downloads/app.apk" download style="background-color: #00ffff; color: #000; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold;">
+      📱 Descargar App Celular
+    </a>
+  </div>
+</section>
 
   <section class="videos">
     <div class="video-block">
